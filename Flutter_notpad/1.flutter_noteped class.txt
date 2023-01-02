@@ -1,0 +1,34 @@
+firebase : fire base is a google's product for cloud base service.
+		
+
+				using of firebase we can store data in cloud.
+
+
+ofline database limit : which is run on specific divice only
+
+online database limi  : reqvired web apis -work slowely
+
+clousd database limit : need to purchace it using of firebase we can use
+							realtime database.
+
+
+firebase 2.0 : No sql database
+				
+					firebase which is store data in list of objects
+						in the form of tree
+
+	User
+	|- asddsxv4563
+			|-"name":"adil"
+			|-"subject": "flutter"
+
+	|-3dhggydas8
+		
+				|-
+	
+		datastore in a json formet :
+  
+									Json : javascript object notation
+											which is contain key and values in a pair.
+
+

@@ -1,0 +1,68 @@
+{
+    "products": [
+        {
+            "id": 1,
+            "name": "iphone 12 pro",
+            "desc": "Apple iphone 12 genration",
+            "price": 999,
+            "color": "#33505a",
+            "image": "https://cdn.dxomark.com/wp-content/uploads/medias/post-61183/iphone-12-pro-blue-hero.jpg"
+        },
+        {
+            "id": 2,
+            "name": "pixel 5",
+            "desc": "google pixel 5 genration",
+            "price": 699,
+            "color": "#00ac51",
+            "image": "https://fdn2.gsmarena.com/vv/bigpic/google-pixel-5-5g.jpg"
+        },
+        {
+            "id": 3,
+            "name": "M1 macbook Air",
+            "desc": "Apple macbook air with apple silicon",
+            "price": 1099,
+            "color": "#ea0bfae",
+            "image": "https://i.gadgets360cdn.com/large/apple_macbook_air_M1_2020_review_compare_1607600260901.jpg"
+        },
+        {
+            "id": 4,
+            "name": "Playstation 5",
+            "desc": "Sony playstation 5th genration",
+            "price": 500,
+            "color": "#e544ee4",
+            "image": "https://media.istockphoto.com/id/687958304/photo/sony-play-station-4-and-dualshock-video-game-console.jpg?s=612x612&w=0&k=20&c=TjYQMjUchhSuoWd9P3z4XE-E_QddhruFMKVq644RmIE="
+        },
+        {
+            "id": 5,
+            "name": "Airpods",
+            "desc": "Apple airpods 1st genration",
+            "price": 200,
+            "color": "#e3e4e9",
+            "image": "https://media.istockphoto.com/id/687958304/photo/sony-play-station-4-and-dualshock-video-game-console.jpg?s=612x612&w=0&k=20&c=TjYQMjUchhSuoWd9P3z4XE-E_QddhruFMKVq644RmIE="
+        },
+        {
+            "id": 6,
+            "name": "ipad pro",
+            "desc": "Apple ipads pro 2020 edition",
+            "price": 799,
+            "color": "#f73984",
+            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4LKGvdD4noVEYloEfvwRyXHj9VnHMieTTcA&usqp=CAU"
+        },
+        {
+            "id": 7,
+            "name": "Galaxy s21 ultra",
+            "desc": "Samsung Galaxy s21 ultra 2021 edition",
+            "price": 1299,
+            "color": "#icicic",
+            "image": "https://s3b.cashify.in/gpro/uploads/2021/01/30050243/samsung-galaxy-s21-ultra-5g-front.png"
+        },
+        {
+            "id": 8,
+            "name": "Redmi",
+            "desc": "Redmi 5th genration",
+            "price": 599,
+            "color": "#00ac51",
+            "image": "https://s3b.cashify.in/gpro/uploads/2021/01/30050243/samsung-galaxy-s21-ultra-5g-front.png"
+        }
+    ]
+}
