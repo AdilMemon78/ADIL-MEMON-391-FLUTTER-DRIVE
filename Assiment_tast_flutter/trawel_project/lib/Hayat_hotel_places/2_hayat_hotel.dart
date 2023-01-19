@@ -4,6 +4,8 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:trawel_project/Hayat_hotel_places/3_hayat_2.dart';
+import 'package:trawel_project/Hayat_hotel_places/4_hayat_3%20-%20Copy.dart';
+import 'package:trawel_project/Hayat_hotel_places/5_hayat_4%20-%20Copy.dart';
 
 class Hayat extends StatefulWidget {
   const Hayat({Key? key}) : super(key: key);
@@ -125,8 +127,12 @@ class _HayatState extends State<Hayat> {
                 onPressed: (() {
                   setState(() {});
                   Navigator.push(context,
-                      MaterialPageRoute(builder: ((context) => HAyat_2())));
+                      MaterialPageRoute(builder: ((context) => Hayat_4())));
                 }),
+                style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(Colors.indigo),
+                    shape: MaterialStateProperty.all(RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30)))),
                 child: Text(
                   "Book now",
                   style: TextStyle(

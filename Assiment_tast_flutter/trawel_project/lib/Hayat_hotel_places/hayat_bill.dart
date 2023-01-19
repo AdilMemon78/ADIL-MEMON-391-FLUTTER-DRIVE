@@ -14,7 +14,7 @@ class Bill_1 extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white54,
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           Text(
             name,
@@ -30,9 +30,14 @@ class Bill_1 extends StatelessWidget {
           ),
           ElevatedButton(
               onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: ((context) => Hayat_4())));
+                // Navigator.push(context,
+                //     MaterialPageRoute(builder: ((context) => Hayat_4())));
+                Navigator.pop(context);
               },
+              style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(Colors.green),
+                  shape: MaterialStateProperty.all(RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30)))),
               child: Text(
                 "Cler data",
                 style: TextStyle(fontSize: 30),

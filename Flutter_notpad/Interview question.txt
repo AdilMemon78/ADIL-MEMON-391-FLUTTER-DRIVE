@@ -1,0 +1,125 @@
+						
+										interview question.
+
+1). what is dart?
+
+-->	dart is an object-oriented,garbage-callected programming language that we use to devlop flutter app.
+
+--> it was created by google and later cartified as a statnderd by the europen committee for standardization(ECMA).
+	it is server side and browser side programing lanvage.
+	
+
+
+2). Features of dart ?
+
+--> Dart can be converted to javascrpit using the dart2js tool, which is extremely valuable because it
+	allows it to work on all modern browers with very little code and run on servers using the SDk's
+		vartual Machine.
+
+3). what is SDk?
+
+	--> Software devlopment kit.
+
+
+4).What are the data types in dart?
+
+:->	String: which is represent by String keyword and contain text values
+
+	Boolean: which is represent by bool keyword and contain true / false value
+	
+	List: list is predefined class which is contain number of  elements at single location
+ 
+	Maps: predefined class which is contain elements in key and value format
+
+	Int: to store (numeric values)
+
+	Double: to store (pointed values) Dynamic type
+
+5). what is the file extenction of dart ?
+
+
+--> .dart
+
+6). what is variable?
+
+--> a name which can a store value.
+
+
+7). what is the data type
+
+
+--> Which type of value store in a variable
+
+
+8).What is the keyword?
+
+--> A reserved word which have predefined meaning
+
+
+9).What is class?
+
+--> Class is a user defined data type which is contain  Similar and dis-similar data elemant and member
+
+Functions at same location
+
+E.g. for navigation drawer we create different different classes for different different screen
+
+Home,
+
+Contact
+
+Settings etc....
+
+
+10).What is an object?
+
+-->Object is an instance or variable of class Using of object we can access properties of class.
+
+11). Types of operators in dart ?
+
+--> Arithmetic
+--> Relational
+--> conditional
+--> Bitwise operateor
+--> Logical operator (&&,||,!)
+
+12). is dart easier then javascript?
+
+--> Dart is around two times as quick as javascript,dart can compiled by aot(ahed of time) and jit compiles.
+
+13).does dart support overloading ?
+
+--> No, dart does not support function overloading
+
+14). What is fat arrow notation in dart ?
+
+--> Fat arrow notation is a single line fuuction which return single line statement
+
+		
+		void myfun()
+{
+
+	if(10==10)
+{
+
+print("hello");
+
+}
+
+}
+FAt arrow function
+
+void myfun()=>10==10? print("hello"):print("hi");
+
+
+
+
+
+		
+	
+
+
+
+
+	
+	

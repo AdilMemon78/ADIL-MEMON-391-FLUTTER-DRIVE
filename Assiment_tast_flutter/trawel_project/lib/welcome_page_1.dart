@@ -3,6 +3,8 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:trawel_project/histery_places/Jali_histery.dart';
 import 'package:trawel_project/histery_places/histery_page_1.dart';
 import 'package:trawel_project/1_hotel_page_All_hotel.dart';
+import 'package:trawel_project/pages_file/notification.dart';
+import 'package:trawel_project/pages_file/settings.dart';
 
 class Histery_1 extends StatelessWidget {
   const Histery_1({Key? key}) : super(key: key);
@@ -54,6 +56,11 @@ class Histery_1 extends StatelessWidget {
                                 IconButton(
                                   onPressed: (() {
                                     print("Notification");
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: ((context) =>
+                                                notification())));
                                   }),
                                   icon: Icon(
                                     Icons.notifications,
@@ -66,6 +73,10 @@ class Histery_1 extends StatelessWidget {
                           IconButton(
                             onPressed: (() {
                               print("Settings");
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: ((context) => settings())));
                             }),
                             icon: Icon(
                               Icons.settings,

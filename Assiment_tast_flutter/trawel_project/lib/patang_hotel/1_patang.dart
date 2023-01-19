@@ -148,16 +148,24 @@ class _patangState extends State<patang> {
                 height: 5,
               ),
               Row(
-                mainAxisAlignment: MainAxisAlignment.end,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   ElevatedButton(
-                      onPressed: (() {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: ((context) => patang_2())));
-                      }),
-                      child: Icon(Icons.arrow_right_alt)),
+                    onPressed: (() {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: ((context) => patang_2())));
+                    }),
+                    style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(
+                          Color.fromARGB(255, 51, 92, 111),
+                        ),
+                        shape: MaterialStateProperty.all(RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(30)))),
+                    child: Text("Next Page"),
+                  ),
+                  Icon(Icons.arrow_right_sharp)
                 ],
               )
             ],

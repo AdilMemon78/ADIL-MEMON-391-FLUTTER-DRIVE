@@ -33,7 +33,7 @@ class _setting_pageState extends State<setting_page> {
                     ClipRRect(
                       borderRadius: BorderRadius.circular(40),
                       child: Image.asset(
-                        "images/seting_1.png",
+                        "images/1212.jpg",
                         height: 65,
                         width: 65,
                       ),

@@ -159,10 +159,12 @@ class _firstpageState extends State<firstpage> {
                       // tabs 1.
                       Padding(
                         padding: EdgeInsets.all(10),
-                        child: Image.asset(
-                          "images/seting_1.png",
-                          height: 100,
-                          fit: BoxFit.cover,
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(1500),
+                          child: Image.asset(
+                            "images/1212.jpg",
+                            fit: BoxFit.cover,
+                          ),
                         ),
                       ),
 

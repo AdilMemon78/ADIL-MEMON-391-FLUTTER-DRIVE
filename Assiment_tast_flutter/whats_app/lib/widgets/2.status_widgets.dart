@@ -170,7 +170,7 @@ class _status_widgetsState extends State<status_widgets> {
                               height: 7,
                             ),
                             Text(
-                              "yestarday,1:39",
+                              "yestarday,1:52",
                               style: TextStyle(
                                   fontSize: 15, fontWeight: FontWeight.w500),
                             )

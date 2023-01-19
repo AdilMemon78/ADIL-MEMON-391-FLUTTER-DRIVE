@@ -7,6 +7,7 @@ import 'package:trawel_project/histery_places/Kakriya_lake.dart';
 import 'package:trawel_project/histery_places/Riverfront.dart';
 import 'package:trawel_project/histery_places/SAbar_mati.dart';
 import 'package:trawel_project/histery_places/since_city.dart';
+import 'package:trawel_project/welcome_page_1.dart';
 
 class Histery_2 extends StatelessWidget {
   const Histery_2({Key? key}) : super(key: key);
@@ -14,6 +15,7 @@ class Histery_2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(),
       backgroundColor: Colors.teal,
       body: ListView(
         children: [

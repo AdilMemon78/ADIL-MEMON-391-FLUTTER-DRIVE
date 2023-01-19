@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:trawel_project/Hayat_hotel_places/2_hayat_hotel.dart';
 import 'package:trawel_project/welcome_page_1.dart';
 
 import 'package:carousel_slider/carousel_slider.dart';
@@ -13,6 +14,7 @@ class login extends StatefulWidget {
 }
 
 var name = "";
+bool changeButton = false;
 
 class _loginState extends State<login> {
   var emailController = TextEditingController();
@@ -42,13 +44,13 @@ class _loginState extends State<login> {
                     width: 400,
                     // color: Colors.grey,
                     child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Padding(
                           padding: const EdgeInsets.all(20),
                           child: Center(
                             child: Text(
-                              "Welcome to Memon trawels,$name",
+                              "Welcome to Memon trawels",
                               style: TextStyle(
                                   fontSize: 20,
                                   fontStyle: FontStyle.italic,
@@ -136,7 +138,7 @@ class _loginState extends State<login> {
                   ElevatedButton(
                       style: ButtonStyle(
                           backgroundColor:
-                              MaterialStateProperty.all(Colors.black),
+                              MaterialStateProperty.all(Colors.grey),
                           shape:
                               MaterialStateProperty.all<RoundedRectangleBorder>(
                                   RoundedRectangleBorder(
@@ -153,7 +155,7 @@ class _loginState extends State<login> {
                       child: Text(
                         "Login",
                         style: TextStyle(
-                            color: Colors.white,
+                            color: Colors.purple,
                             fontSize: 30,
                             fontWeight: FontWeight.bold,
                             fontStyle: FontStyle.italic),

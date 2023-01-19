@@ -83,6 +83,10 @@ class HAyat_3 extends StatelessWidget {
                     Navigator.push(context,
                         MaterialPageRoute(builder: ((context) => Hayat_4())));
                   }),
+                  style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all(Colors.black),
+                      shape: MaterialStateProperty.all(RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(30)))),
                   child: Text("Book now")),
             ],
           )

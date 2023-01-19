@@ -18,6 +18,11 @@ class HAyat_2 extends StatelessWidget {
                     Navigator.push(context,
                         MaterialPageRoute(builder: ((context) => Hayat())));
                   }),
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(Colors.grey),
+                    shape: MaterialStateProperty.all(RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30))),
+                  ),
                   child: Icon(
                     Icons.arrow_back,
                     color: Colors.black,
@@ -223,6 +228,10 @@ class HAyat_2 extends StatelessWidget {
                     Navigator.push(context,
                         MaterialPageRoute(builder: ((context) => HAyat_3())));
                   }),
+                  style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all(Colors.purple),
+                      shape: MaterialStateProperty.all(RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(30)))),
                   child: Text("pages"))
             ],
           )

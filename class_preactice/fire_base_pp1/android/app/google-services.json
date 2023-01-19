@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "833850190644",
+    "project_id": "adilproject01",
+    "storage_bucket": "adilproject01.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:833850190644:android:d744bc1f20f3bc11ced361",
+        "android_client_info": {
+          "package_name": "com.example.fire_base_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "833850190644-rlqtkm9l1p2pttqjct123rjkjub88hi5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAkURSgmqxVOBCkyafRD5peiVmTCEhX3mg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "833850190644-rlqtkm9l1p2pttqjct123rjkjub88hi5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
