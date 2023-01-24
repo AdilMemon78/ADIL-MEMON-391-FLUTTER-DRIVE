@@ -42,7 +42,7 @@ class _MyAppState extends State<MyApp> {
   }
 
   getuserLoggedInStatus() async {
-    await helperfunction.getuserLoggedInStatus().then((value) {
+    await HelperFunctions.getUserLoggedInStatus().then((value) {
       if (value != null) {
         _issign = value;
       }
@@ -52,6 +52,9 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: _issign ? Home_page() : Login_page());
+        theme: ThemeData(
+            primaryColor: constants().primaryColor,
+            scaffoldBackgroundColor: Colors.white),
+        home: _issign ? HomePage() : LoginPage());
   }
 }
