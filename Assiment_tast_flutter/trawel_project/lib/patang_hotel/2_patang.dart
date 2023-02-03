@@ -4,6 +4,7 @@ import 'package:trawel_project/Hayat_hotel_places/3_hayat_2.dart';
 import 'package:trawel_project/patang_hotel/3_phone%20call.dart';
 import 'package:trawel_project/patang_hotel/4_photo.dart';
 import 'package:trawel_project/patang_hotel/5_book.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class patang_2 extends StatefulWidget {
   const patang_2({super.key});
@@ -38,10 +39,11 @@ class _patang_2State extends State<patang_2> {
               Container(
                 child: InkWell(
                   onTap: () {
-                    Navigator.push(
+                    Navigator.pushAndRemoveUntil(
                         context,
                         MaterialPageRoute(
-                            builder: ((context) => patang_photo())));
+                            builder: ((context) => patang_photo())),
+                        (route) => false);
                   },
                   child: Image.asset(
                     "assets/image/pt1.jpg",
@@ -121,10 +123,7 @@ class _patang_2State extends State<patang_2> {
               ),
               InkWell(
                 onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: ((context) => phone_calling())));
+                  launch("tel://+919375341886");
                 },
                 child: Text(
                   "+91 9375341886",
@@ -136,8 +135,10 @@ class _patang_2State extends State<patang_2> {
         ),
         ElevatedButton(
           onPressed: (() {
-            Navigator.push(
-                context, MaterialPageRoute(builder: ((context) => book())));
+            Navigator.pushAndRemoveUntil(
+                context,
+                MaterialPageRoute(builder: ((context) => book())),
+                (route) => false);
           }),
           child: Text(
             "Book Now",

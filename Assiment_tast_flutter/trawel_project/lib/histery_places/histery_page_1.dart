@@ -15,7 +15,9 @@ class Histery_2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        backgroundColor: Color.fromARGB(255, 204, 196, 196),
+      ),
       backgroundColor: Colors.teal,
       body: ListView(
         children: [

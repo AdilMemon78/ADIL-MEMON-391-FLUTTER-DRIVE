@@ -135,21 +135,22 @@ class _Hayat_4State extends State<Hayat_4> {
               ElevatedButton(
                 onPressed: (() {
                   total;
-                  Navigator.push(
+                  Navigator.pushAndRemoveUntil(
                       context,
                       MaterialPageRoute(
                           builder: ((context) => Bill_1(
                               name: " your best name is : $name",
                               num: " your number is : $num",
-                              result: " your price is: $total"))));
+                              result: " your price is: $total"))),
+                      (route) => false);
                 }),
                 child: Text(
                   "Cheak Out",
-                  style: TextStyle(color: Color.fromARGB(255, 160, 141, 141)),
+                  style: TextStyle(color: Colors.white),
                 ),
                 style: ButtonStyle(
-                  backgroundColor:
-                      MaterialStateProperty.all(Colors.deepPurpleAccent),
+                  backgroundColor: MaterialStateProperty.all(
+                      Color.fromARGB(255, 97, 91, 91)),
                   shape: MaterialStateProperty.all(RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(100))),
                 ),

@@ -43,15 +43,17 @@ class HAyat_3 extends StatelessWidget {
           Row(
             children: [
               Container(
-                child: Text(
-                  "Unlock a world of upscale experiences at\n this lavish propertyoffering plush rooms,\n multiple dining venues, an outdoor pool\n and a host of luxury amenities.",
-                  style: TextStyle(fontSize: 20),
+                child: Expanded(
+                  child: Text(
+                    "Unlock a world of upscale experiences at this lavish propertyoffering plush rooms, multiple dining venues, an outdoor pool and a host of luxury amenities.",
+                    style: TextStyle(fontSize: 20),
+                  ),
                 ),
               )
             ],
           ),
           SizedBox(
-            height: 50,
+            height: 40,
           ),
           Row(
             children: [
@@ -61,7 +63,7 @@ class HAyat_3 extends StatelessWidget {
                   "price",
                   style: TextStyle(fontSize: 30),
                 ),
-              )
+              ),
             ],
           ),
           Row(
@@ -69,19 +71,24 @@ class HAyat_3 extends StatelessWidget {
               Container(
                 margin: EdgeInsets.all(10.0),
                 child: Text(
-                  "\$4000",
+                  "      \$4000",
                   style: TextStyle(fontSize: 20),
                 ),
               ),
             ],
+          ),
+          SizedBox(
+            height: 10,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               ElevatedButton(
                   onPressed: (() {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: ((context) => Hayat_4())));
+                    Navigator.pushAndRemoveUntil(
+                        context,
+                        MaterialPageRoute(builder: ((context) => Hayat_4())),
+                        (route) => false);
                   }),
                   style: ButtonStyle(
                       backgroundColor: MaterialStateProperty.all(Colors.black),

@@ -106,12 +106,6 @@ class _bookState extends State<book> {
                     shape: MaterialStateProperty.all(RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(30)))),
               ),
-              Container(
-                child: Text(
-                  "$count",
-                  style: Theme.of(context).textTheme.headline4,
-                ),
-              ),
               ElevatedButton(
                 child: Icon(Icons.remove),
                 onPressed: () {
@@ -137,13 +131,14 @@ class _bookState extends State<book> {
               ElevatedButton(
                 onPressed: (() {
                   total;
-                  Navigator.push(
+                  Navigator.pushAndRemoveUntil(
                       context,
                       MaterialPageRoute(
                           builder: ((context) => patang_bill(
                               name: "your name is : $name",
                               num: "your number is : $num",
-                              result: "Booking Ticket price is: $total"))));
+                              result: "Booking Ticket price is: $total"))),
+                      (route) => false);
                 }),
                 style: ButtonStyle(
                   backgroundColor: MaterialStateProperty.all(Colors.amber),
@@ -153,6 +148,21 @@ class _bookState extends State<book> {
                 child: Text(
                   "Cheak Out",
                   style: TextStyle(color: Colors.blue),
+                ),
+              ),
+            ],
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container(
+                child: Text(
+                  "Ticket book is :$count",
+                  style: //Theme.of(context).textTheme.headline4,
+                  TextStyle(color: Color.fromARGB(255, 11, 69, 117),fontSize: 30,fontWeight: FontWeight.bold)
                 ),
               ),
             ],

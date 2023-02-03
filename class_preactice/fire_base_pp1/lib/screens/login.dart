@@ -12,6 +12,7 @@ class Login_page extends StatefulWidget {
 class _Login_pageState extends State<Login_page> {
   TextEditingController _emaillogincontroller = TextEditingController();
   TextEditingController _passwordlogincontroller = TextEditingController();
+  TextEditingController _ragustercontroller = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,6 +22,11 @@ class _Login_pageState extends State<Login_page> {
             Center(
               child: Text("Login"),
             ),
+            SizedBox(
+              height: 10,
+            ),
+            myTextField("Enter Email", "Email", false, Icons.email,
+                _ragustercontroller),
             SizedBox(
               height: 10,
             ),

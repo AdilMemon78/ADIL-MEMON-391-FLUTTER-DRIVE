@@ -129,10 +129,11 @@ class _patangState extends State<patang> {
                     margin: EdgeInsets.all(10),
                     child: GestureDetector(
                       onTap: () {
-                        Navigator.push(
+                        Navigator.pushAndRemoveUntil(
                             context,
                             MaterialPageRoute(
-                                builder: ((context) => patang_2())));
+                                builder: ((context) => patang_2())),
+                            (route) => false);
                       },
                       child: Image.asset(
                         "assets/image/patang_7.jpg",
@@ -152,10 +153,10 @@ class _patangState extends State<patang> {
                 children: [
                   ElevatedButton(
                     onPressed: (() {
-                      Navigator.push(
+                      Navigator.pushAndRemoveUntil(
                           context,
-                          MaterialPageRoute(
-                              builder: ((context) => patang_2())));
+                          MaterialPageRoute(builder: ((context) => patang_2())),
+                          (route) => false);
                     }),
                     style: ButtonStyle(
                         backgroundColor: MaterialStateProperty.all(

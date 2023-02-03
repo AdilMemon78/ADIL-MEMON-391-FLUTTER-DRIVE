@@ -1,9 +1,15 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:trawel_project/firebase/phone_page.dart';
 
 import 'package:trawel_project/pages_file/login_peg.dart';
 import 'package:trawel_project/First_slider_page.dart';
 
-void main() {
+void main() async {
+  //otp firebase
+
+  // WidgetsFlutterBinding.ensureInitialized();
+  // Firebase.initializeApp();
   runApp(Myapp());
 }
 
@@ -17,6 +23,8 @@ class Myapp extends StatefulWidget {
 class _MyappState extends State<Myapp> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(debugShowCheckedModeBanner: false, home: slider_page());
+    return MaterialApp(debugShowCheckedModeBanner: false, home: slider_page()
+        // phone_page()
+        );
   }
 }

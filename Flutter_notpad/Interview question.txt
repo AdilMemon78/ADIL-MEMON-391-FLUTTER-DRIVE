@@ -113,6 +113,12 @@ void myfun()=>10==10? print("hello"):print("hi");
 
 
 
+------> getx
+		block, provider,cubic,
+		riverpod,lifecicle
+
+
+
 
 
 		

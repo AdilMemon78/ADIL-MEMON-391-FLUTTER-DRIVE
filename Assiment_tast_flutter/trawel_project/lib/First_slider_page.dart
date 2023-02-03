@@ -1,5 +1,8 @@
 import 'dart:async';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:trawel_project/firebase/otp_page.dart';
+import 'package:trawel_project/firebase/phone_page.dart';
 import 'package:trawel_project/pages_file/login_peg.dart';
 import 'package:trawel_project/welcome_page_1.dart';
 
@@ -25,10 +28,8 @@ class _slider_pageState extends State<slider_page> {
   }
 
   Login_page() {
-    Navigator.pushReplacement(
-      context,
-      MaterialPageRoute(builder: (context) => login()),
-    );
+    Navigator.pushAndRemoveUntil(context,
+        MaterialPageRoute(builder: (context) => login()), (route) => false);
   }
 
   Widget build(BuildContext context) {
