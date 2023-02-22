@@ -56,12 +56,12 @@ class Histery_1 extends StatelessWidget {
                                 IconButton(
                                   onPressed: (() {
                                     print("Notification");
-                                    Navigator.pushAndRemoveUntil(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: ((context) =>
-                                                notification())),
-                                        (route) => false);
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: ((context) =>
+                                              notification())),
+                                    );
                                   }),
                                   icon: Icon(
                                     Icons.notifications,
@@ -74,11 +74,11 @@ class Histery_1 extends StatelessWidget {
                           IconButton(
                             onPressed: (() {
                               print("Settings");
-                              Navigator.pushAndRemoveUntil(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: ((context) => settings())),
-                                  (route) => false);
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: ((context) => settings())),
+                              );
                             }),
                             icon: Icon(
                               Icons.settings,
@@ -171,12 +171,12 @@ class Histery_1 extends StatelessWidget {
                         children: [
                           GestureDetector(
                             onTap: () {
-                              Navigator.pushAndRemoveUntil(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: ((context) => Histery_2()),
-                                  ),
-                                  (route) => false);
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: ((context) => Histery_2()),
+                                ),
+                              );
                             },
                             child: Container(
                               child: Column(
@@ -201,12 +201,12 @@ class Histery_1 extends StatelessWidget {
                           ),
                           GestureDetector(
                             onTap: () {
-                              Navigator.pushAndRemoveUntil(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: ((context) => Hotel_page()),
-                                  ),
-                                  (route) => false);
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: ((context) => Hotel_page()),
+                                ),
+                              );
                             },
                             child: Container(
                               child: Column(

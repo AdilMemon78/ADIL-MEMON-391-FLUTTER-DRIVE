@@ -67,6 +67,7 @@
 // }
 
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -99,9 +100,7 @@ class _loginState extends State<login> {
         height: 800,
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: NetworkImage(
-              "https://png.pngtree.com/thumb_back/fh260/back_our/20190619/ourmid/pngtree-travel-around-the-world-travel-poster-template-image_140335.jpg",
-            ),
+            image: AssetImage("assets/image/adil01.webp"),
             fit: BoxFit.cover,
           ),
         ),
@@ -121,122 +120,134 @@ class _loginState extends State<login> {
                       Padding(
                         padding: const EdgeInsets.only(top: 30),
                         child: Center(
-                          child: Text(
-                            "Welcome to Memon trawels",
-                            style: TextStyle(
+                          child: Text("Welcome to Memon trawels",
+                              style: TextStyle(
                                 fontSize: 20,
                                 fontStyle: FontStyle.italic,
-                                fontWeight: FontWeight.w400,
-                                color: Colors.white),
-                          ),
+                                fontWeight: FontWeight.w800,
+                                color: Colors.black54,
+                              )),
                         ),
                       ),
                     ],
                   ),
                 ),
                 SizedBox(
-                  height: 150,
+                  height: 130,
                 ),
-                TextFormField(
-                    controller: emailController,
-                    validator: ((value) {
-                      if (value!.trim().isEmpty) {
-                        return "Please enter Email Adress";
-                      }
-                      return null;
-                    }),
-                    decoration: InputDecoration(
-                      prefixIcon: Icon(Icons.email),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(18),
+                Padding(
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 12, horizontal: 12),
+                  child: TextFormField(
+                      controller: emailController,
+                      validator: ((value) {
+                        if (value!.trim().isEmpty) {
+                          return "Please enter Email Adress";
+                        }
+                        return null;
+                      }),
+                      decoration: InputDecoration(
+                        prefixIcon: Icon(Icons.email),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(18),
+                        ),
+                        labelStyle:
+                            TextStyle(color: Color.fromARGB(255, 0, 0, 0)),
+                        hintText: "Enter E-mail",
+                        hintStyle:
+                            TextStyle(color: Color.fromARGB(255, 59, 11, 11)),
                       ),
-                      labelStyle:
-                          TextStyle(color: Color.fromARGB(255, 0, 0, 0)),
-                      hintText: "Enter E-mail",
-                      hintStyle:
-                          TextStyle(color: Color.fromARGB(255, 59, 11, 11)),
-                    ),
-                    onChanged: (value) {
-                      name = value;
-                      setState(() {
-                        print("your name is -------> $name");
-                      });
-                    }),
+                      onChanged: (value) {
+                        name = value;
+                        setState(() {
+                          print("your name is -------> $name");
+                        });
+                      }),
+                ),
                 SizedBox(
                   height: 10,
                 ),
-                TextFormField(
-                  keyboardType: TextInputType.number,
-                  obscureText: securePassword,
-                  validator: (value) {
-                    if (value!.trim().isEmpty) {
-                      return "Please enter contact number ";
-                    }
-                    return null;
-                  },
-                  controller: contactController,
-                  decoration: InputDecoration(
-                    //  labelText: "Contact.No",
-                    prefixIcon: Icon(Icons.person),
+                Padding(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
+                  child: TextFormField(
+                    //keyboardType: TextInputType.emailAddress,
+                    obscureText: securePassword,
+                    validator: (value) {
+                      if (value!.trim().isEmpty) {
+                        return "Please enter Password ";
+                      }
+                      return null;
+                    },
+                    controller: contactController,
+                    decoration: InputDecoration(
+                      //  labelText: "Contact.No",
+                      prefixIcon: Icon(Icons.lock),
 
-                    suffixIcon: IconButton(
-                        onPressed: () {
-                          setState(() {
-                            securePassword = !securePassword;
-                          });
-                        },
-                        icon: securePassword
-                            ? Icon(Icons.visibility_off)
-                            : Icon(Icons.visibility)),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(18),
+                      suffixIcon: IconButton(
+                          onPressed: () {
+                            setState(() {
+                              securePassword = !securePassword;
+                            });
+                          },
+                          icon: securePassword
+                              ? Icon(Icons.visibility_off)
+                              : Icon(Icons.visibility)),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(18),
+                      ),
+
+                      labelStyle:
+                          TextStyle(color: Color.fromARGB(255, 222, 209, 209)),
+                      hintText: "Enter Password",
+
+                      hintStyle:
+                          TextStyle(color: Color.fromARGB(255, 59, 11, 11)),
                     ),
-
-                    labelStyle:
-                        TextStyle(color: Color.fromARGB(255, 222, 209, 209)),
-                    hintText: "Mobile number",
-
-                    hintStyle:
-                        TextStyle(color: Color.fromARGB(255, 59, 11, 11)),
                   ),
                 ),
                 SizedBox(
-                  height: 120,
+                  height: 100,
                 ),
-                ElevatedButton(
-                    style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all(Colors.grey),
-                        shape:
-                            MaterialStateProperty.all<RoundedRectangleBorder>(
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    ElevatedButton(
+                        style: ButtonStyle(
+                            backgroundColor:
+                                MaterialStateProperty.all(Colors.grey),
+                            shape: MaterialStateProperty.all<
+                                    RoundedRectangleBorder>(
                                 RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(50)))),
-                    onPressed: (() {
-                      if (_formKey.currentState!.validate()) {
-                        Navigator.pushAndRemoveUntil(
-                            context,
-                            MaterialPageRoute(
-                                builder: ((context) => Histery_1())),
-                            (route) => false);
-                      }
-                    }),
-                    child: Text(
-                      "Login",
-                      style: TextStyle(
-                          color: Colors.purple,
-                          fontSize: 30,
-                          fontWeight: FontWeight.bold,
-                          fontStyle: FontStyle.italic),
-                    )),
+                        onPressed: (() {
+                          if (_formKey.currentState!.validate()) {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: ((context) => Histery_1())),
+                            );
+                          }
+                        }),
+                        child: Text(
+                          "Login",
+                          style: TextStyle(
+                              color: Colors.black54,
+                              fontSize: 30,
+                              fontWeight: FontWeight.bold,
+                              fontStyle: FontStyle.italic),
+                        )),
+                  ],
+                ),
                 SizedBox(
                   height: 5,
                 ),
                 TextButton(
                     onPressed: (() {
-                      // Navigator.pushAndRemoveUntil(
-                      //     context,
-                      //     MaterialPageRoute(
-                      //         builder: ((context) => phone_page())),
-                      //     (route) => false);
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: ((context) => phone_page())),
+                      );
                     }),
                     child: Text(
                       "another option",

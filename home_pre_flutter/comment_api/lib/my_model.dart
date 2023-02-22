@@ -1,8 +1,8 @@
 class MyModel {
-  final int id;
+  final int? id;
   final String? name;
-  final String e_mail;
-  final String body;
+  final String? e_mail;
+  final String? body;
 
   // constructor
   const MyModel(

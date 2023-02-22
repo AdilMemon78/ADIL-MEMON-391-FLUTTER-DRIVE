@@ -224,10 +224,10 @@ class HAyat_2 extends StatelessWidget {
             children: [
               ElevatedButton(
                   onPressed: (() {
-                    Navigator.pushAndRemoveUntil(
-                        context,
-                        MaterialPageRoute(builder: ((context) => HAyat_3())),
-                        (route) => false);
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: ((context) => HAyat_3())),
+                    );
                   }),
                   style: ButtonStyle(
                       backgroundColor: MaterialStateProperty.all(Colors.purple),

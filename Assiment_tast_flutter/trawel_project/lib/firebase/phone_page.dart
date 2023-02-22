@@ -34,7 +34,9 @@ class _phone_pageState extends State<phone_page> {
                 "assets/image/river_1.jpg",
                 height: 250,
                 width: 250,
+                
               ),
+              
               SizedBox(
                 height: 25,
               ),

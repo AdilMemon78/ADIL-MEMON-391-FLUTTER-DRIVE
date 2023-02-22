@@ -135,10 +135,7 @@ class _patang_2State extends State<patang_2> {
         ),
         ElevatedButton(
           onPressed: (() {
-            Navigator.pushAndRemoveUntil(
-                context,
-                MaterialPageRoute(builder: ((context) => book())),
-                (route) => false);
+            Navigator.push(context,  MaterialPageRoute(builder: ((context) => book())),);
           }),
           child: Text(
             "Book Now",

@@ -12,170 +12,212 @@ class book extends StatefulWidget {
 class _bookState extends State<book> {
   @override
   TextEditingController myEdit = TextEditingController();
+  TextEditingController nameu = TextEditingController();
+  TextEditingController contact = TextEditingController();
   var name = "";
   int total = 0;
   int count = 0;
+  final _formKey = GlobalKey<FormState>();
   String? result = "";
 
   var num;
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.teal,
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Colors.blueGrey,
+        backgroundColor: Colors.transparent,
         title: Text(
-          "Booking Bill",
-          style: TextStyle(color: Color.fromARGB(255, 115, 142, 116)),
+          "Billing",
+          style: TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+              fontStyle: FontStyle.italic,
+              color: Colors.black),
         ),
         centerTitle: true,
       ),
-      body: ListView(
-        children: [
-          Container(
-            margin: EdgeInsets.only(top: 80),
-            child: TextFormField(
-              decoration: InputDecoration(
-                prefixIcon: Icon(Icons.nature),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(18),
-                ),
-                hintText: "Enter name",
-              ),
-              onChanged: (value) {
-                name = value;
-                setState(() {
-                  print("-------->$name");
-                });
-              },
-            ),
-          ),
-          Column(
-            children: [
-              Container(
-                margin: EdgeInsets.only(top: 50),
-                child: TextFormField(
-                  decoration: InputDecoration(
-                    prefixIcon: Icon(Icons.person),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(18),
-                    ),
-                    hintText: "Mobile No.",
+      body: Form(
+        key: _formKey,
+        child: ListView(
+          children: [
+            Container(
+              margin: EdgeInsets.only(top: 80),
+              child: TextFormField(
+                controller: nameu,
+                validator: ((value) {
+                  if (value!.trim().isEmpty) {
+                    return "Please Enter a Name";
+                  }
+                  return null;
+                }),
+                decoration: InputDecoration(
+                  prefixIcon: Icon(Icons.nature),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(18),
                   ),
-                  onChanged: (value) {
-                    num = value;
+                  hintText: "Enter name",
+                ),
+                onChanged: (value) {
+                  name = value;
+                  setState(() {
+                    print("-------->$name");
+                  });
+                },
+              ),
+            ),
+            Column(
+              children: [
+                Container(
+                  margin: EdgeInsets.only(top: 50),
+                  child: TextFormField(
+                    controller: contact,
+                    validator: ((value) {
+                      if (value!.trim().isEmpty) {
+                        return "Please Enter Contact number";
+                      }
+                      return null;
+                    }),
+                    decoration: InputDecoration(
+                      prefixIcon: Icon(Icons.person),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(18),
+                      ),
+                      hintText: "Mobile No.",
+                    ),
+                    onChanged: (value) {
+                      num = value;
+                      setState(() {
+                        print("Best number is----->$num");
+                      });
+                    },
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(
+              height: 40,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  child: Text(
+                    "Hotel price is \$3500",
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  ),
+                )
+              ],
+            ),
+            SizedBox(
+              height: 50,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              //crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                ElevatedButton(
+                  child: Icon(Icons.add),
+                  onPressed: () {
+                    total = (total + 3500);
+                    print("Your booking price is :-->$total");
                     setState(() {
-                      print("Best number is----->$num");
+                      count++;
                     });
                   },
+                  style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all(Colors.amber),
+                      shape: MaterialStateProperty.all(RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(30)))),
                 ),
-              ),
-            ],
-          ),
-          SizedBox(
-            height: 40,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Container(
-                child: Text(
-                  "Hotel price is \$3500",
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                ElevatedButton(
+                  child: Icon(Icons.remove),
+                  onPressed: () {
+                    total = (total - 3500);
+                    print("your buy cancel  price is :-->$total");
+                    setState(() {
+                      count--;
+                    });
+                  },
+                  style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all(Colors.amber),
+                      shape: MaterialStateProperty.all(RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(30)))),
                 ),
-              )
-            ],
-          ),
-          SizedBox(
-            height: 50,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            //crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              ElevatedButton(
-                child: Icon(Icons.add),
-                onPressed: () {
-                  total = (total + 3500);
-                  print("Your booking price is :-->$total");
-                  setState(() {
-                    count++;
-                  });
-                },
-                style: ButtonStyle(
+              ],
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                ElevatedButton(
+                  onPressed: (() {
+                    total;
+                    if (_formKey.currentState!.validate())
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: ((context) => patang_bill(
+                                name: "your name is : $name",
+                                num: "your number is : $num",
+                                result: "Booking Ticket price is: $total"))),
+                      );
+                  }),
+                  style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.all(Colors.amber),
                     shape: MaterialStateProperty.all(RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(30)))),
-              ),
-              ElevatedButton(
-                child: Icon(Icons.remove),
-                onPressed: () {
-                  total = (total - 3500);
-                  print("your buy cancel  price is :-->$total");
-                  setState(() {
-                    count--;
-                  });
-                },
-                style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(Colors.amber),
-                    shape: MaterialStateProperty.all(RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(30)))),
-              ),
-            ],
-          ),
-          SizedBox(
-            height: 20,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              ElevatedButton(
-                onPressed: (() {
-                  total;
-                  Navigator.pushAndRemoveUntil(
-                      context,
-                      MaterialPageRoute(
-                          builder: ((context) => patang_bill(
-                              name: "your name is : $name",
-                              num: "your number is : $num",
-                              result: "Booking Ticket price is: $total"))),
-                      (route) => false);
-                }),
-                style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(Colors.amber),
-                  shape: MaterialStateProperty.all(RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(100))),
+                        borderRadius: BorderRadius.circular(100))),
+                  ),
+                  child: Text(
+                    "Cheak Out",
+                    style: TextStyle(color: Colors.blue),
+                  ),
                 ),
-                child: Text(
-                  "Cheak Out",
-                  style: TextStyle(color: Colors.blue),
+              ],
+            ),
+            SizedBox(
+              height: 30,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  child: Text("Ticket book is :$count",
+                      style: //Theme.of(context).textTheme.headline4,
+                          TextStyle(
+                              color: Color.fromARGB(255, 11, 69, 117),
+                              fontSize: 30,
+                              fontWeight: FontWeight.bold)),
                 ),
-              ),
-            ],
-          ),
-          SizedBox(
-            height: 20,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Container(
-                child: Text(
-                  "Ticket book is :$count",
-                  style: //Theme.of(context).textTheme.headline4,
-                  TextStyle(color: Color.fromARGB(255, 11, 69, 117),fontSize: 30,fontWeight: FontWeight.bold)
+              ],
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  child: Text("Total Money is :$total",
+                      style: //Theme.of(context).textTheme.headline4,
+                          TextStyle(
+                              color: Color.fromARGB(255, 11, 69, 117),
+                              fontSize: 30,
+                              fontWeight: FontWeight.bold)),
                 ),
-              ),
-            ],
-          ),
-          Row(
-            children: [
-              Text(
-                result!,
-                style: TextStyle(fontSize: 22),
-              )
-            ],
-          ),
-        ],
+              ],
+            ),
+            Row(
+              children: [
+                Text(
+                  result!,
+                  style: TextStyle(fontSize: 22),
+                )
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }

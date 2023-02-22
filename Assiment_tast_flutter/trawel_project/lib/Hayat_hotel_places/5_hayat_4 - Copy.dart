@@ -16,156 +16,211 @@ class _Hayat_4State extends State<Hayat_4> {
   String? result = "";
   var nameController = TextEditingController();
   var contactController = TextEditingController();
+  final _formKey = GlobalKey<FormState>();
 
   var num;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(179, 150, 125, 125),
-      body: ListView(
-        children: [
-          Container(
-            margin: EdgeInsets.only(top: 80),
-            child: TextFormField(
-              controller: nameController,
-              validator: ((value) {
-                if (value!.trim().isEmpty) {
-                  return "Please enter ";
-                }
-                return null;
-              }),
-              decoration: InputDecoration(
-                prefixIcon: Icon(Icons.nature),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(18),
-                ),
-                hintText: "Enter name",
-              ),
-              onChanged: (value) {
-                name = value;
-                setState(() {
-                  print("-------->$name");
-                });
-              },
-            ),
-          ),
-          Column(
-            children: [
-              Container(
-                margin: EdgeInsets.only(top: 80),
-                child: TextFormField(
-                  decoration: InputDecoration(
-                    prefixIcon: Icon(Icons.person),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(18),
-                    ),
-                    hintText: "Mobile No.",
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        title: Text(
+          "Billing",
+          style: TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+              fontStyle: FontStyle.italic,
+              color: Colors.black),
+        ),
+        centerTitle: true,
+      ),
+      body: Form(
+        key: _formKey,
+        child: ListView(
+          children: [
+            Container(
+              margin: EdgeInsets.only(top: 80),
+              child: TextFormField(
+                controller: nameController,
+                validator: ((value) {
+                  if (value!.trim().isEmpty) {
+                    return "Please Enter a Name";
+                  }
+                  return null;
+                }),
+                decoration: InputDecoration(
+                  prefixIcon: Icon(Icons.person),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(18),
                   ),
-                  onChanged: (value) {
-                    num = value;
+                  hintText: "Enter name",
+                ),
+                onChanged: (value) {
+                  name = value;
+                  setState(() {
+                    print("-------->$name");
+                  });
+                },
+              ),
+            ),
+            Column(
+              children: [
+                Container(
+                  margin: EdgeInsets.only(top: 80),
+                  child: TextFormField(
+                    validator: ((value) {
+                      if (value!.trim().isEmpty) {
+                        return "Please Enter Contact number";
+                      }
+                      return null;
+                    }),
+                    decoration: InputDecoration(
+                      prefixIcon: Icon(Icons.person),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(18),
+                      ),
+                      hintText: "Mobile No.",
+                    ),
+                    onChanged: (value) {
+                      num = value;
+                      setState(() {
+                        print("Best number is----->$num");
+                      });
+                    },
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(
+              height: 40,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  child: Text(
+                    "Hotel price is \$4000",
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  ),
+                )
+              ],
+            ),
+            SizedBox(
+              height: 50,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              //crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                ElevatedButton(
+                  child: Icon(Icons.add),
+                  style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all(Colors.purple),
+                      shape: MaterialStateProperty.all(RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(30)))),
+                  onPressed: () {
+                    total = (total + 4000);
+                    print("Your booking price is :-->$total");
                     setState(() {
-                      print("Best number is----->$num");
+                      count++;
                     });
                   },
                 ),
-              ),
-            ],
-          ),
-          SizedBox(
-            height: 40,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Container(
-                child: Text(
-                  "Hotel price is \$4000",
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                // Container(
+                //   child: Text(
+                //     "$count",
+                //     style: Theme.of(context).textTheme.headline4,
+                //   ),
+                // ),
+                ElevatedButton(
+                  child: Icon(Icons.remove),
+                  style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all(Colors.purple),
+                      shape: MaterialStateProperty.all(RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(30)))),
+                  onPressed: () {
+                    total = (total - 4000);
+                    print("your buy cancel  price is :-->$total");
+                    setState(() {
+                      count--;
+                    });
+                  },
                 ),
-              )
-            ],
-          ),
-          SizedBox(
-            height: 50,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            //crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              ElevatedButton(
-                child: Icon(Icons.add),
-                style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(Colors.purple),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                ElevatedButton(
+                  onPressed: (() {
+                    total;
+                    if (_formKey.currentState!.validate())
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: ((context) => Bill_1(
+                                name: " your best name is : $name",
+                                num: " your number is : $num",
+                                result: " your price is: $total"))),
+                      );
+                  }),
+                  child: Text(
+                    "Cheak Out",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(
+                        Color.fromARGB(255, 97, 91, 91)),
                     shape: MaterialStateProperty.all(RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(30)))),
-                onPressed: () {
-                  total = (total + 4000);
-                  print("Your booking price is :-->$total");
-                  setState(() {
-                    count++;
-                  });
-                },
-              ),
-              Container(
-                child: Text(
-                  "$count",
-                  style: Theme.of(context).textTheme.headline4,
+                        borderRadius: BorderRadius.circular(100))),
+                  ),
                 ),
-              ),
-              ElevatedButton(
-                child: Icon(Icons.remove),
-                style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(Colors.purple),
-                    shape: MaterialStateProperty.all(RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(30)))),
-                onPressed: () {
-                  total = (total - 4000);
-                  print("your buy cancel  price is :-->$total");
-                  setState(() {
-                    count--;
-                  });
-                },
-              ),
-            ],
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              ElevatedButton(
-                onPressed: (() {
-                  total;
-                  Navigator.pushAndRemoveUntil(
-                      context,
-                      MaterialPageRoute(
-                          builder: ((context) => Bill_1(
-                              name: " your best name is : $name",
-                              num: " your number is : $num",
-                              result: " your price is: $total"))),
-                      (route) => false);
-                }),
-                child: Text(
-                  "Cheak Out",
-                  style: TextStyle(color: Colors.white),
+              ],
+            ),
+            SizedBox(
+              height: 50,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  child: Text("Ticket book is :$count",
+                      style: //Theme.of(context).textTheme.headline4,
+                          TextStyle(
+                              color: Color.fromARGB(255, 11, 69, 117),
+                              fontSize: 30,
+                              fontWeight: FontWeight.bold)),
                 ),
-                style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(
-                      Color.fromARGB(255, 97, 91, 91)),
-                  shape: MaterialStateProperty.all(RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(100))),
+              ],
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  child: Text("Ticket book is :$total",
+                      style: //Theme.of(context).textTheme.headline4,
+                          TextStyle(
+                              color: Color.fromARGB(255, 11, 69, 117),
+                              fontSize: 30,
+                              fontWeight: FontWeight.bold)),
                 ),
-              ),
-            ],
-          ),
-          Row(
-            children: [
-              Text(
-                result!,
-                style: TextStyle(fontSize: 22),
-              )
-            ],
-          ),
-        ],
+              ],
+            ),
+            Row(
+              children: [
+                Text(
+                  result!,
+                  style: TextStyle(fontSize: 22),
+                )
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }

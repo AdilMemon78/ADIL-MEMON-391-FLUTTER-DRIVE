@@ -45,10 +45,7 @@ class patang_bill extends StatelessWidget {
                   onPressed: () {
                     // Navigator.push(
                     //     context, MaterialPageRoute(builder: ((context) => book())));
-                    Navigator.pushAndRemoveUntil(
-                        context,
-                        MaterialPageRoute(builder: ((context) => book())),
-                        (route) => false);
+                    Navigator.pop(context);
                   },
                   style: ButtonStyle(
                       backgroundColor:

@@ -112,10 +112,8 @@ class _HayatState extends State<Hayat> {
                   margin: EdgeInsets.all(10),
                   child: GestureDetector(
                     onTap: () {
-                      Navigator.pushAndRemoveUntil(
-                          context,
-                          MaterialPageRoute(builder: ((context) => HAyat_2())),
-                          (route) => false);
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: ((context) => HAyat_2())));
                     },
                     child: Image.asset(
                       "assets/image/hayt_7.webp",
@@ -128,10 +126,8 @@ class _HayatState extends State<Hayat> {
             ElevatedButton(
                 onPressed: (() {
                   setState(() {});
-                  Navigator.pushAndRemoveUntil(
-                      context,
-                      MaterialPageRoute(builder: ((context) => Hayat_4())),
-                      (route) => false);
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: ((context) => Hayat_4())));
                 }),
                 style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.all(Colors.indigo),

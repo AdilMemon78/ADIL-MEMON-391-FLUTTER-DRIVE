@@ -9,7 +9,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:image_cropper/image_cropper.dart';
+import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
 
 class CompleteProfile extends StatefulWidget {
@@ -25,28 +25,37 @@ class CompleteProfile extends StatefulWidget {
 }
 
 class _CompleteProfileState extends State<CompleteProfile> {
-  File? imageFile;
+  File? imageFilee;
   TextEditingController fullNameController = TextEditingController();
 
-  void selectImage(ImageSource source) async {
-    XFile? pickedFile = await ImagePicker().pickImage(source: source);
+  Future pickImage() async {
+    try {
+      final image = await ImagePicker().pickImage(source: ImageSource.gallery);
 
-    if (pickedFile != null) {
-      cropImage(pickedFile);
+      if (image == null) return;
+
+      final imageTemp = File(image.path);
+
+      setState(() => this.imageFilee = imageTemp);
+    } on PlatformException catch (e) {
+      print('Failed to pick image: $e');
     }
   }
 
-  void cropImage(XFile file) async {
+  Future pickImageC() async {
+    try {
+      final image = await ImagePicker().pickImage(
+          source: ImageSource.camera,
+          maxWidth: double.infinity,
+          maxHeight: double.infinity);
 
-    File? croppedImage = await ImageCropper.cropImage(
-        sourcePath: file.path,
-        aspectRatio: CropAspectRatio(ratioX: 1, ratioY: 1),
-        compressQuality: 20);
+      if (image == null) return;
 
-    if (croppedImage != null) {
-      setState(() {
-        imageFile = croppedImage;
-      });
+      final imageTemp = File(image.path);
+
+      setState(() => this.imageFilee = imageTemp);
+    } on PlatformException catch (e) {
+      print('Failed to pick image: $e');
     }
   }
 
@@ -62,7 +71,8 @@ class _CompleteProfileState extends State<CompleteProfile> {
                 ListTile(
                   onTap: () {
                     Navigator.pop(context);
-                    selectImage(ImageSource.gallery);
+                    pickImage();
+                    //selectImage(ImageSource.gallery);
                   },
                   leading: Icon(Icons.photo_album),
                   title: Text("Select from Gallery"),
@@ -70,7 +80,8 @@ class _CompleteProfileState extends State<CompleteProfile> {
                 ListTile(
                   onTap: () {
                     Navigator.pop(context);
-                    selectImage(ImageSource.camera);
+                    pickImageC();
+                    //selectImage(ImageSource.camera);
                   },
                   leading: Icon(Icons.camera_alt),
                   title: Text("Take a photo"),
@@ -84,7 +95,7 @@ class _CompleteProfileState extends State<CompleteProfile> {
   void checkValues() {
     String fullname = fullNameController.text.trim();
 
-    if (fullname == "" || imageFile == null) {
+    if (fullname == "" || imageFilee == null) {
       print("Please fill all the fields");
       UIHelper.showAlertDialog(context, "Incomplete Data",
           "Please fill all the fields and upload a profile picture");
@@ -100,7 +111,7 @@ class _CompleteProfileState extends State<CompleteProfile> {
     UploadTask uploadTask = FirebaseStorage.instance
         .ref("profilepictures")
         .child(widget.userModel.uid.toString())
-        .putFile(imageFile!);
+        .putFile(imageFilee!);
 
     TaskSnapshot snapshot = await uploadTask;
 
@@ -151,13 +162,8 @@ class _CompleteProfileState extends State<CompleteProfile> {
                 child: CircleAvatar(
                   radius: 60,
                   backgroundImage:
-                      (imageFile != null) ? FileImage(imageFile!) : null,
-                  child: (imageFile == null)
-                      ? Icon(
-                          Icons.person,
-                          size: 60,
-                        )
-                      : null,
+                      imageFilee != null ? FileImage(imageFilee!) : null,
+                  //child: (imageFile == null) ? Icon(Icons.person, size: 60,) : null,
                 ),
               ),
               SizedBox(

@@ -75,14 +75,14 @@ class _MyApiDataState extends State<MyApiData> {
                           height: 20,
                         ),
                         Text(
-                          mylist[index].e_mail,
+                          mylist[index].e_mail!,
                           style: TextStyle(color: Colors.grey),
                         ),
                         SizedBox(
                           height: 20,
                         ),
                         Text(
-                          mylist[index].body,
+                          mylist[index].body!,
                           style: TextStyle(color: Colors.teal),
                         )
                       ],
