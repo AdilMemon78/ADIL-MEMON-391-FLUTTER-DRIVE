@@ -14,34 +14,48 @@ class Bill_1 extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white54,
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          Text(
-            name,
-            style: TextStyle(fontSize: 25),
+          SafeArea(
+            child: Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(30.0),
+                  child: Text(
+                    name,
+                    style: TextStyle(fontSize: 25),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(30.0),
+                  child: Text(
+                    num,
+                    style: TextStyle(fontSize: 25),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(30.0),
+                  child: Text(
+                    result!,
+                    style: TextStyle(fontSize: 25),
+                  ),
+                ),
+                SizedBox(
+                  height: 400,
+                ),
+                Container(
+                  //alignment: Alignment.center,
+                  child: Text(
+                    "Thankyou For Visit Again",
+                    style: TextStyle(
+                        color: Colors.black54,
+                        fontWeight: FontWeight.bold,
+                        fontStyle: FontStyle.italic,
+                        fontSize: 20),
+                  ),
+                )
+              ],
+            ),
           ),
-          Text(
-            num,
-            style: TextStyle(fontSize: 25),
-          ),
-          Text(
-            result!,
-            style: TextStyle(fontSize: 25),
-          ),
-          ElevatedButton(
-              onPressed: () {
-                // Navigator.push(context,
-                //     MaterialPageRoute(builder: ((context) => Hayat_4())));
-                Navigator.pop(context);
-              },
-              style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(Colors.green),
-                  shape: MaterialStateProperty.all(RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30)))),
-              child: Text(
-                "Cler data",
-                style: TextStyle(fontSize: 30),
-              ))
         ],
       ),
     );

@@ -34,12 +34,6 @@ class _ApiState extends State<Api> {
   late Future<List<MyModel>> myfuturelist;
 
   @override
-  // void initState() {
-  //   // TODO: implement initState
-  //   super.initState();
-  //   myfuturelist = fetchData();
-  // }
-
   void initState() {
     super.initState();
     myfuturelist = fetchData();
@@ -68,6 +62,7 @@ class _ApiState extends State<Api> {
                       print(
                         " id is => ${mylist[index].id}",
                       );
+                      
                     },
                     child: Column(
                       children: [

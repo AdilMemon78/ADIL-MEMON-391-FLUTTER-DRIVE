@@ -1,15 +1,40 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:flutter_launcher_icons/xml_templates.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:trawel_project/histery_places/Jali_histery.dart';
 import 'package:trawel_project/histery_places/histery_page_1.dart';
 import 'package:trawel_project/1_hotel_page_All_hotel.dart';
+import 'package:trawel_project/pages_file/login_peg.dart';
 import 'package:trawel_project/pages_file/notification.dart';
 import 'package:trawel_project/pages_file/settings.dart';
 
-class Histery_1 extends StatelessWidget {
-  const Histery_1({Key? key}) : super(key: key);
+class Histery_1 extends StatefulWidget {
+  @override
+  State<Histery_1> createState() => _Histery_1State();
+}
+
+class _Histery_1State extends State<Histery_1> {
+  String? username;
+
+  SharedPreferences? logindata;
 
   @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    initial();
+  }
+
+  void initial() async {
+    logindata = await SharedPreferences.getInstance();
+    setState(() {
+      username = logindata?.getString('username');
+    });
+  }
+
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.teal,
@@ -41,10 +66,12 @@ class Histery_1 extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
                           Container(
-                            child: Image.network(
-                              "https://epayrent.in/img/cities/ahmedabad.png",
-                              height: 100,
-                              width: 80,
+                            // height: 100,
+                            child: Image.asset(
+                              "assets/image/download01.png",
+                              // height: 80,
+                              width: 70,
+                              fit: BoxFit.cover,
                             ),
                           ),
                           SizedBox(
@@ -71,19 +98,41 @@ class Histery_1 extends StatelessWidget {
                               ],
                             ),
                           ),
-                          IconButton(
-                            onPressed: (() {
-                              print("Settings");
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: ((context) => settings())),
-                              );
-                            }),
-                            icon: Icon(
-                              Icons.settings,
-                              color: Colors.white,
-                            ),
+                          // IconButton(
+                          //   onPressed: (() {
+                          //     Navigator.push(
+                          //       context,
+                          //       MaterialPageRoute(
+                          //           builder: ((context) => settings())),
+                          //     );
+                          //   }),
+                          //   icon: Icon(
+                          //     Icons.logout,
+                          //     color: Colors.white,
+                          //   ),
+                          // )
+                          PopupMenuButton(
+                            color: Colors.red,
+                            onSelected: (selected) {
+                              if (selected == 1) {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: ((context) => settings())));
+                              }
+                            },
+                            itemBuilder: (context) => [
+                              PopupMenuItem(
+                                  value: 1,
+                                  child: Center(
+                                    child: Text(
+                                      "Logout",
+                                      style: TextStyle(
+                                          fontSize: 17,
+                                          fontWeight: FontWeight.w500),
+                                    ),
+                                  )),
+                            ],
                           )
                         ],
                       ),

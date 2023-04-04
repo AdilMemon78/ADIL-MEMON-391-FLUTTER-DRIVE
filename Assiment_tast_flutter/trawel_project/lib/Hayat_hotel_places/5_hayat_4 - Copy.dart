@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:trawel_project/Data_base%20file/hotelModel.dart';
+import 'package:trawel_project/Data_base%20file/hotel_service.dart';
 import 'package:trawel_project/Hayat_hotel_places/hayat_bill.dart';
 
 class Hayat_4 extends StatefulWidget {
@@ -12,8 +14,12 @@ class _Hayat_4State extends State<Hayat_4> {
   TextEditingController myEdit = TextEditingController();
   var name = "";
   int total = 0;
+  int total1 = 0;
   int count = 0;
   String? result = "";
+
+  var _hotelServices = HotelService();
+
   var nameController = TextEditingController();
   var contactController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
@@ -70,6 +76,7 @@ class _Hayat_4State extends State<Hayat_4> {
                 Container(
                   margin: EdgeInsets.only(top: 80),
                   child: TextFormField(
+                    keyboardType: TextInputType.phone,
                     validator: ((value) {
                       if (value!.trim().isEmpty) {
                         return "Please Enter Contact number";
@@ -122,6 +129,7 @@ class _Hayat_4State extends State<Hayat_4> {
                           borderRadius: BorderRadius.circular(30)))),
                   onPressed: () {
                     total = (total + 4000);
+                    total = (total1 = total);
                     print("Your booking price is :-->$total");
                     setState(() {
                       count++;
@@ -142,6 +150,7 @@ class _Hayat_4State extends State<Hayat_4> {
                           borderRadius: BorderRadius.circular(30)))),
                   onPressed: () {
                     total = (total - 4000);
+                    total = (total1 = total);
                     print("your buy cancel  price is :-->$total");
                     setState(() {
                       count--;
@@ -154,8 +163,15 @@ class _Hayat_4State extends State<Hayat_4> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 ElevatedButton(
-                  onPressed: (() {
-                    total;
+                  onPressed: (() async {
+                    total1;
+                    print("Your Booked Price is: $total1");
+                    print("Ticket Count is:$count");
+
+                    var _hotel = Hotel();
+                    var result = await _hotelServices.saveData(_hotel);
+                    print(result);
+
                     if (_formKey.currentState!.validate())
                       Navigator.push(
                         context,
@@ -202,7 +218,7 @@ class _Hayat_4State extends State<Hayat_4> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
-                  child: Text("Ticket book is :$total",
+                  child: Text("Ticket Money is :$total",
                       style: //Theme.of(context).textTheme.headline4,
                           TextStyle(
                               color: Color.fromARGB(255, 11, 69, 117),

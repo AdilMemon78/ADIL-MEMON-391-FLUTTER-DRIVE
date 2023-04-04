@@ -1,78 +1,11 @@
-// import 'package:flutter/material.dart';
-
-// class login extends StatefulWidget {
-//   @override
-//   _loginState createState() => _loginState();
-// }
-
-// class _loginState extends State<login> {
-//   final _formKey = GlobalKey<FormState>();
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       body: Container(
-//         decoration: BoxDecoration(
-//           image: DecorationImage(
-//             image: NetworkImage(
-//                 'https://images.unsplash.com/photo-1542838132-92c53300491e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80'),
-//             fit: BoxFit.cover,
-//           ),
-//         ),
-//         child: Form(
-//           key: _formKey,
-//           child: Column(
-//             mainAxisAlignment: MainAxisAlignment.center,
-//             children: [
-//               TextFormField(
-//                 decoration: InputDecoration(
-//                   labelText: 'Email',
-//                   filled: true,
-//                   fillColor: Colors.white,
-//                 ),
-//                 validator: (value) {
-//                   if (value!.isEmpty) {
-//                     return 'Please enter email';
-//                   }
-//                   return null;
-//                 },
-//               ),
-//               TextFormField(
-//                 decoration: InputDecoration(
-//                   labelText: 'Password',
-//                   filled: true,
-//                   fillColor: Colors.white,
-//                 ),
-//                 validator: (value) {
-//                   if (value!.isEmpty) {
-//                     return 'Please enter password';
-//                   }
-//                   return null;
-//                 },
-//               ),
-//               GestureDetector(
-//                 onTap: () {
-//                   if (_formKey.currentState!.validate()) {
-//                     // Log in
-//                   }
-//                 },
-//                 child: Text('Login'),
-//               ),
-//             ],
-//           ),
-//         ),
-//       ),
-//     );
-//   }
-// }
-
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:trawel_project/Hayat_hotel_places/2_hayat_hotel.dart';
-import 'package:trawel_project/firebase/phone_page.dart';
+
 import 'package:trawel_project/welcome_page_1.dart';
 
 import 'package:carousel_slider/carousel_slider.dart';
@@ -89,10 +22,37 @@ bool changeButton = false;
 
 class _loginState extends State<login> {
   var emailController = TextEditingController();
-  var contactController = TextEditingController();
+  var passwordController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
   bool securePassword = true;
+
+  SharedPreferences? logindata;
+  bool? newuser;
+
   @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    check_if_already_login();
+  }
+
+  void check_if_already_login() async {
+    logindata = await SharedPreferences.getInstance();
+    newuser = (logindata?.getBool('login') ?? true);
+    print(newuser);
+    if (newuser == false) {
+      Navigator.pushReplacement(
+          context, new MaterialPageRoute(builder: (context) => Histery_1()));
+    }
+  }
+
+  void dispose() {
+    // Clean up the controller when the widget is disposed.
+    emailController.dispose();
+    passwordController.dispose();
+    super.dispose();
+  }
+
   Widget build(BuildContext context) {
     return Scaffold(
         body: SingleChildScrollView(
@@ -139,6 +99,7 @@ class _loginState extends State<login> {
                   padding:
                       const EdgeInsets.symmetric(vertical: 12, horizontal: 12),
                   child: TextFormField(
+                      //keyboardType: TextInputType.emailAddress,
                       controller: emailController,
                       validator: ((value) {
                         if (value!.trim().isEmpty) {
@@ -179,7 +140,7 @@ class _loginState extends State<login> {
                       }
                       return null;
                     },
-                    controller: contactController,
+                    controller: passwordController,
                     decoration: InputDecoration(
                       //  labelText: "Contact.No",
                       prefixIcon: Icon(Icons.lock),
@@ -220,13 +181,20 @@ class _loginState extends State<login> {
                                     RoundedRectangleBorder>(
                                 RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(50)))),
-                        onPressed: (() {
-                          if (_formKey.currentState!.validate()) {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: ((context) => Histery_1())),
-                            );
+                        onPressed: (() async {
+                          String username = emailController.text;
+                          String password = passwordController.text;
+                          if (username != '' && password != '') {
+                            print('Successfull');
+                            logindata?.setBool('login', false);
+                            logindata?.setString('username', username);
+                            if (_formKey.currentState!.validate()) {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: ((context) => Histery_1())),
+                              );
+                            }
                           }
                         }),
                         child: Text(
@@ -246,7 +214,7 @@ class _loginState extends State<login> {
                     onPressed: (() {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: ((context) => phone_page())),
+                        MaterialPageRoute(builder: ((context) => Histery_1())),
                       );
                     }),
                     child: Text(

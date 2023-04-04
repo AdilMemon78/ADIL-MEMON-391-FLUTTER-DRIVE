@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "614321120631",
+    "project_id": "trawel-project-bc2e9",
+    "storage_bucket": "trawel-project-bc2e9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:614321120631:android:770a14e44d7803092ead72",
+        "android_client_info": {
+          "package_name": "com.example.trawel_project"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "614321120631-o6d9t320j11akek5otk6i4k6rp35mgma.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAg0VPgq23aIk8xtX2kdQVIOxcA1ypEJyY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "614321120631-o6d9t320j11akek5otk6i4k6rp35mgma.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

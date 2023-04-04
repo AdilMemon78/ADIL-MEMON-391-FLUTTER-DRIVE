@@ -11,11 +11,11 @@ class book extends StatefulWidget {
 
 class _bookState extends State<book> {
   @override
-  TextEditingController myEdit = TextEditingController();
   TextEditingController nameu = TextEditingController();
   TextEditingController contact = TextEditingController();
   var name = "";
   int total = 0;
+  int total1 = 0;
   int count = 0;
   final _formKey = GlobalKey<FormState>();
   String? result = "";
@@ -70,6 +70,7 @@ class _bookState extends State<book> {
                 Container(
                   margin: EdgeInsets.only(top: 50),
                   child: TextFormField(
+                    keyboardType: TextInputType.number,
                     controller: contact,
                     validator: ((value) {
                       if (value!.trim().isEmpty) {
@@ -119,6 +120,7 @@ class _bookState extends State<book> {
                   child: Icon(Icons.add),
                   onPressed: () {
                     total = (total + 3500);
+                    total = (total1 = total);
                     print("Your booking price is :-->$total");
                     setState(() {
                       count++;
@@ -133,6 +135,7 @@ class _bookState extends State<book> {
                   child: Icon(Icons.remove),
                   onPressed: () {
                     total = (total - 3500);
+                    total = (total1 = total);
                     print("your buy cancel  price is :-->$total");
                     setState(() {
                       count--;
@@ -153,15 +156,17 @@ class _bookState extends State<book> {
               children: [
                 ElevatedButton(
                   onPressed: (() {
+                    print("Your Ticket Booked Price is: $total1");
+                    print("Your Ticket Count is:$count");
                     total;
                     if (_formKey.currentState!.validate())
                       Navigator.push(
                         context,
                         MaterialPageRoute(
                             builder: ((context) => patang_bill(
-                                name: "your name is : $name",
+                                name: "your Best name is : $name",
                                 num: "your number is : $num",
-                                result: "Booking Ticket price is: $total"))),
+                                result: "Booking price is: $total"))),
                       );
                   }),
                   style: ButtonStyle(
