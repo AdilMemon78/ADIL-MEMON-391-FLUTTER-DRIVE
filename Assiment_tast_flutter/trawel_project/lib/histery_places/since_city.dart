@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:readmore/readmore.dart';
 
 class Since_city extends StatefulWidget {
   const Since_city({Key? key}) : super(key: key);
@@ -23,10 +24,20 @@ class _Since_cityState extends State<Since_city> {
         Expanded(
           child: Container(
             child: Text(
-              "Gujarat, on the western coast of India, is one of the most prosperous and progressive Indian states. It came into existence in 1960 when it was separated from the State of Bombay. It is spread over an area of 1,96,024 square kms and has a population of 64 million. The Government of Gujarat has established the Gujarat Council of Science City, a registered society, to achieve the Gujarat Science City mandate. The Government is already in possession of 107 hectares of land.",
+              "",
               style: TextStyle(fontSize: 25),
             ),
           ),
+        ),
+        ReadMoreText(
+          "Gujarat, on the western coast of India, is one of the most prosperous and progressive Indian states. It came into existence in 1960 when it was separated from the State of Bombay. It is spread over an area of 1,96,024 square kms and has a population of 64 million. The Government of Gujarat has established the Gujarat Council of Science City, a registered society, to achieve the Gujarat Science City mandate. The Government is already in possession of 107 hectares of land.",
+          style: TextStyle(fontSize: 30),
+          trimLines: 5,
+          colorClickableText: Colors.pink,
+          trimMode: TrimMode.Line,
+          trimCollapsedText: 'Show more',
+          trimExpandedText: 'Show close',
+          moreStyle: TextStyle(fontSize: 19, fontWeight: FontWeight.bold),
         ),
         Container(
           margin: EdgeInsets.only(left: 150),

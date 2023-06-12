@@ -14,7 +14,7 @@ class item_page extends StatefulWidget {
 }
 
 class _item_pageState extends State<item_page> {
-  List<Color> Clrs = [
+  List Clrs = [
     Colors.red,
     Colors.green,
     Colors.blue,

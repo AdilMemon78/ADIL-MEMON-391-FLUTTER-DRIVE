@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:async';
 
 import 'package:flutter/material.dart';
 
@@ -59,33 +60,38 @@ class _MyApiDataState extends State<MyApiData> {
               return ListView.builder(
                 itemCount: mylist.length,
                 itemBuilder: (context, index) {
-                  return GestureDetector(
-                    onTap: () {
-                      print(
-                        " id is => ${mylist[index].id}",
-                      );
-                    },
-                    child: Column(
-                      children: [
-                        Text(
-                          mylist[index].name!,
-                          style: TextStyle(color: Colors.blue),
-                        ),
-                        SizedBox(
-                          height: 20,
-                        ),
-                        Text(
-                          mylist[index].e_mail!,
-                          style: TextStyle(color: Colors.grey),
-                        ),
-                        SizedBox(
-                          height: 20,
-                        ),
-                        Text(
-                          mylist[index].body!,
-                          style: TextStyle(color: Colors.teal),
-                        )
-                      ],
+                  return Container(
+                    color: Colors.white,
+                    height: 200,
+                    width: 200,
+                    child: GestureDetector(
+                      onTap: () {
+                        print(
+                          " id is => ${mylist[index].id}",
+                        );
+                      },
+                      child: Column(
+                        children: [
+                          Text(
+                            mylist[index].name!,
+                            style: TextStyle(color: Colors.blue),
+                          ),
+                          SizedBox(
+                            height: 20,
+                          ),
+                          Text(
+                            mylist[index].e_mail!,
+                            style: TextStyle(color: Colors.grey),
+                          ),
+                          SizedBox(
+                            height: 20,
+                          ),
+                          Text(
+                            mylist[index].body!,
+                            style: TextStyle(color: Colors.teal),
+                          )
+                        ],
+                      ),
                     ),
                   );
                 },

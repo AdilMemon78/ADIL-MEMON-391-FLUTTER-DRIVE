@@ -60,7 +60,8 @@ class _loginState extends State<login> {
         height: 800,
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage("assets/image/adil01.webp"),
+            image: NetworkImage(
+                "https://i.vimeocdn.com/video/638284371-7cfe6b6e757c042a6e92b70c2222d1a4338b1a31279cf3377a787c42089bf4f3-d_640x360.jpg"),
             fit: BoxFit.cover,
           ),
         ),
@@ -176,7 +177,7 @@ class _loginState extends State<login> {
                     ElevatedButton(
                         style: ButtonStyle(
                             backgroundColor:
-                                MaterialStateProperty.all(Colors.grey),
+                                MaterialStateProperty.all(Colors.purple),
                             shape: MaterialStateProperty.all<
                                     RoundedRectangleBorder>(
                                 RoundedRectangleBorder(
@@ -198,10 +199,10 @@ class _loginState extends State<login> {
                           }
                         }),
                         child: Text(
-                          "Login",
+                          "Sign UP",
                           style: TextStyle(
-                              color: Colors.black54,
-                              fontSize: 30,
+                              color: Colors.white,
+                              fontSize: 25,
                               fontWeight: FontWeight.bold,
                               fontStyle: FontStyle.italic),
                         )),

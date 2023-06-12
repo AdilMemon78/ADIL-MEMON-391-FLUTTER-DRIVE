@@ -21,7 +21,7 @@ class _slider_pageState extends State<slider_page> {
   }
 
   startTime() async {
-    var dynamic = Duration(seconds: 6);
+    var dynamic = Duration(seconds: 5);
 
     return new Timer(dynamic, Login_page);
   }
@@ -43,16 +43,32 @@ class _slider_pageState extends State<slider_page> {
             decoration: BoxDecoration(
                 color: new Color(0xffF5591f),
                 gradient: LinearGradient(colors: [
-                  (new Color(0xffF5591f)),
-                  Color.fromARGB(255, 53, 214, 201)
+                  (
+                      //new Color(0xffF5591f)
+                      Color.fromARGB(255, 157, 166, 181)),
+                  Color.fromARGB(255, 12, 65, 179)
                 ], begin: Alignment.topCenter, end: Alignment.bottomCenter)),
           ),
-          Center(
-            child: Container(
-              child: Image.asset("assets/image/51.png"),
+          Padding(
+            padding: const EdgeInsets.only(top: 80, right: 10),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Center(
+                  child: Container(
+                    child: Image.network(
+                      "https://i.pinimg.com/originals/e7/2f/11/e72f11bd7f79164110d5a7f5b8635feb.jpg",
+                      height: 200,
+                    ),
+                  ),
+                ),
+              ],
             ),
           ),
-          Image.asset("assets/image/50.png")
+          Padding(
+            padding: const EdgeInsets.only(top:20,),
+            child: Image.asset("assets/image/50.png"),
+          )
         ],
       ),
     );

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:readmore/readmore.dart';
 
 class Jama_masjid extends StatelessWidget {
   const Jama_masjid({Key? key}) : super(key: key);
@@ -18,10 +19,20 @@ class Jama_masjid extends StatelessWidget {
         Expanded(
           child: Container(
             child: Text(
-              "Jama Masjid (literally Friday Mosque), also known as Jumah Mosque or Jami' Masjid, is a mosque in Ahmedabad, and was built in 1424 during the reign of Ahmad Shah I. The inscription on the central mihrab commemorates the inauguration of the mosque on the 1st Safar A.H. 827 or January 4, 1424 A.D. by Sultan Ahmad Shah I.[1] The mosque lies in the old walled city, and it is situated outside Bhadra Fort area.[2] The old walled city is divided into separate quarters or pols, and the Jami' Masjid is found on the Gandhi Road. Along the south side of the road, the mosque is a short distance beyond the Teen Darwaza or Tripolia Gate.",
+              "",
               style: TextStyle(fontSize: 25),
             ),
           ),
+        ),
+        ReadMoreText(
+          "Jama Masjid (literally Friday Mosque), also known as Jumah Mosque or Jami' Masjid, is a mosque in Ahmedabad, and was built in 1424 during the reign of Ahmad Shah I. The inscription on the central mihrab commemorates the inauguration of the mosque on the 1st Safar A.H. 827 or January 4, 1424 A.D. by Sultan Ahmad Shah I.[1] The mosque lies in the old walled city, and it is situated outside Bhadra Fort area.[2] The old walled city is divided into separate quarters or pols, and the Jami' Masjid is found on the Gandhi Road. Along the south side of the road, the mosque is a short distance beyond the Teen Darwaza or Tripolia Gate.",
+          style: TextStyle(fontSize: 30),
+          trimLines: 5,
+          colorClickableText: Colors.pink,
+          trimMode: TrimMode.Line,
+          trimCollapsedText: 'Show more',
+          //trimExpandedText: 'Show less',
+          moreStyle: TextStyle(fontSize: 19, fontWeight: FontWeight.bold),
         ),
         Container(
           child: Image.asset("assets/image/jama_3.jpg"),

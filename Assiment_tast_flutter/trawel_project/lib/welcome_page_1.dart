@@ -46,8 +46,10 @@ class _Histery_1State extends State<Histery_1> {
               Container(
                 height: 250,
                 decoration: BoxDecoration(
-                  borderRadius:
-                      BorderRadius.only(bottomLeft: Radius.circular(99)),
+                  borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(100),
+                    bottomRight: Radius.circular(100),
+                  ),
                   // color: Color(0xffF5591f),
                   gradient: LinearGradient(
                     colors: [
@@ -129,6 +131,7 @@ class _Histery_1State extends State<Histery_1> {
                                       "Logout",
                                       style: TextStyle(
                                           fontSize: 17,
+                                          color: Colors.white,
                                           fontWeight: FontWeight.w500),
                                     ),
                                   )),
@@ -169,12 +172,15 @@ class _Histery_1State extends State<Histery_1> {
                     padding: EdgeInsets.all(16),
                     child: TextFormField(
                       decoration: InputDecoration(
-                        prefixIcon: Icon(Icons.search),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(18),
-                        ),
-                        hintText: "Search",
-                      ),
+                          prefixIcon: Icon(
+                            Icons.search,
+                            color: Colors.white,
+                          ),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(18),
+                          ),
+                          hintText: "Search",
+                          hintStyle: TextStyle(color: Colors.white)),
                     ),
                   ),
                   Column(
@@ -196,6 +202,11 @@ class _Histery_1State extends State<Histery_1> {
                       ),
                       CarouselSlider(
                         items: [
+                          Image.asset("assets/image/01.jpg"),
+                          Image.asset("assets/image/02.png"),
+                          Image.asset("assets/image/03.png"),
+                          Image.asset("assets/image/04.png"),
+                          Image.asset("assets/image/05.png"),
                           Image.asset("assets/image/01.jpg"),
                           Image.asset("assets/image/02.png"),
                           Image.asset("assets/image/03.png"),

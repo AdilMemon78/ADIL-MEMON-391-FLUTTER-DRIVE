@@ -58,7 +58,7 @@ class _home_screenState extends State<home_screen> {
                   radius: 25,
                   backgroundImage: AssetImage("lib/images/doctor3.jpg"),
                   backgroundColor: Color.fromARGB(255, 162, 143, 143),
-                ),
+                ),  
               ],
             ),
           ),

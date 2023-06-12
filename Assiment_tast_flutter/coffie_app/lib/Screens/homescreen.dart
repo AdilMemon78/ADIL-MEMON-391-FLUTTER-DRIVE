@@ -29,7 +29,9 @@ class _HomescreenState extends State<Homescreen> {
                       border: Border.all(color: Colors.white, width: 3.0),
                       image: DecorationImage(
                         fit: BoxFit.cover,
-                        image: AssetImage("lib/images/1.chats.jpg"),
+                        image: AssetImage(
+                          "lib/images/1.chats.jpg",
+                        ),
                       ),
                       borderRadius: BorderRadius.circular(35)),
                 ),
@@ -88,11 +90,11 @@ class _HomescreenState extends State<Homescreen> {
               Row(
                 children: [
                   Expanded(
-                    child: NewContainer("lib/images/coffie3.webp", "Americano",
+                    child: NewContainer("lib/images/coffie2.webp", "Americano",
                         "Stream hot form", "3.5"),
                   ),
                   Expanded(
-                    child: NewContainer("lib/images/coffie4.webp", "Lattle",
+                    child: NewContainer("lib/images/coffie1.webp", "Lattle",
                         "Double hot milk", "1"),
                   )
                 ],

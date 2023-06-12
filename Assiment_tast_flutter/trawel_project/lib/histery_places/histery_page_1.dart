@@ -16,7 +16,7 @@ class Histery_2 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 204, 196, 196),
+        backgroundColor: Colors.transparent
       ),
       backgroundColor: Colors.teal,
       body: ListView(
@@ -24,7 +24,7 @@ class Histery_2 extends StatelessWidget {
           Card(
             color: Colors.blue[100],
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(15.0),
+              borderRadius: BorderRadius.circular(35.0),
             ),
             child: GestureDetector(
               onTap: () {},
@@ -62,7 +62,7 @@ class Histery_2 extends StatelessWidget {
                           children: [
                             ClipRRect(
                               child: Text(
-                                "Sidhi Sayyed \n     ni Jali",
+                                "     Sidhi Sayyed \n         ni Jali",
                                 style: TextStyle(
                                     fontWeight: FontWeight.bold, fontSize: 30),
                               ),
