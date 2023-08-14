@@ -28,9 +28,6 @@ class _home_pageState extends State<home_page> {
     var catlogJson = await rootBundle.loadString("assets/files/catlog.json");
     var decodeddata = jsonDecode(catlogJson);
     var productdata = decodeddata["products"];
-
-    Catalogmodel.Items =
-        List.from(productdata).map<Item>((Item) => Item.fromMap(Item)).toList();
   }
 
   build(BuildContext context) {

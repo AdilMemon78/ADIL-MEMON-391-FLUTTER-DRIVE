@@ -58,7 +58,7 @@ class Screen_change extends StatelessWidget {
           MaterialButton(
             onPressed: () {
               Navigator.push(context,
-                  MaterialPageRoute(builder: ((context) => Home_page())));
+                  MaterialPageRoute(builder: ((context) => HomePage())));
             },
             elevation: 0.0,
             color: Colors.orange,

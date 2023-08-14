@@ -4,19 +4,6 @@ import 'package:shade_prefrence/main.dart';
 
 import 'package:shared_preferences/shared_preferences.dart';
 
-// class MainPage extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     return MaterialApp(
-//       title: 'Flutter Demo',
-//       theme: ThemeData(
-//         primarySwatch: Colors.blue,
-//       ),
-//       home: MyDashboard(),
-//     );
-//   }
-// }
-
 class MyDashboard extends StatefulWidget {
   @override
   _MyDashboardState createState() => _MyDashboardState();
@@ -25,6 +12,7 @@ class MyDashboard extends StatefulWidget {
 class _MyDashboardState extends State<MyDashboard> {
   SharedPreferences? logindata;
   String? username;
+
   @override
   void initState() {
     // TODO: implement initState
