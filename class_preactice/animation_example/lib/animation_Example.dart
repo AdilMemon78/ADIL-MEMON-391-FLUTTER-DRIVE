@@ -45,6 +45,11 @@ class _animation_exampleState extends State<animation_example> {
                 onPressed: () {
                   setState(() {
                     _color = Colors.yellow;
+                    _color = Colors.black;
+                    _color = Colors.green;
+                    _color = Colors.blueGrey;
+                    _color = Colors.blue;
+                    _color = Colors.deepOrange;
                   });
                 },
                 child: Text("colour")),

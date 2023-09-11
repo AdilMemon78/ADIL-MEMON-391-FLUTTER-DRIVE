@@ -10,7 +10,7 @@ class MyRadioButton extends StatefulWidget {
 }
 
 class _MyRadioButtonState extends State<MyRadioButton> {
-  Technology tech = Technology.paython;
+  Technology tech = Technology.Adil;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
