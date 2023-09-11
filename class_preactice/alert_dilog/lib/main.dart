@@ -17,8 +17,8 @@ class _MyappState extends State<Myapp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      //home: Alertpage(),
-           home: MyRadioButton(),
+      home: Alertpage(),
+      //home: MyRadioButton(),
     );
   }
 }
